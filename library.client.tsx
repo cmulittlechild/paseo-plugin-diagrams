@@ -1,4 +1,4 @@
-import type { PluginSurfaceProps } from "@paseo/plugin";
+import type { PluginSurfaceProps } from "@getpaseo/plugin/client";
 import React from "react";
 import { PreviewBrowser } from "./browser.client";
 

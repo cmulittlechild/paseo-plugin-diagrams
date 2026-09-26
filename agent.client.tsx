@@ -1,5 +1,5 @@
-import type { PluginAgentPanelProps } from "@paseo/plugin";
-import { useWorkspace } from "@paseo/plugin";
+import type { PluginAgentPanelProps } from "@getpaseo/plugin/client";
+import { useWorkspace } from "@getpaseo/plugin/client";
 import React from "react";
 import { PreviewBrowser } from "./browser.client";
 

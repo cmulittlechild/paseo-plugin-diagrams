@@ -1,4 +1,4 @@
-import { defineRpc } from "@paseo/plugin/server";
+import { defineRpc } from "@getpaseo/plugin";
 import { z } from "zod";
 
 /**

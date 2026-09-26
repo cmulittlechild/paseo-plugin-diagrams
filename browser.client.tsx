@@ -1,5 +1,5 @@
-import type { PluginTheme } from "@paseo/plugin";
-import { usePaseo, useRpc } from "@paseo/plugin";
+import type { PluginTheme } from "@getpaseo/plugin/client";
+import { usePaseo, useRpc } from "@getpaseo/plugin/client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useMemo, useState } from "react";
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";

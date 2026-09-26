@@ -1,36 +1,18 @@
-import type { PluginContext } from "@paseo/plugin";
+import type { PluginClientContext } from "@getpaseo/plugin/client";
 import { PreviewAgentPanel } from "./agent.client";
-import { handleOpen, handleRender, handleShare } from "./handlers.server";
-import {
-  listItems,
-  openItem,
-  renderItem,
-  shareItem,
-  shareStatus,
-  stopShare,
-} from "./items.shared";
 import { PreviewLibrary } from "./library.client";
 import { PreviewPanel } from "./panel.client";
-import { status, stop } from "./share.server";
-import { listAll } from "./sources.server";
 
-export default function contribute(plugin: PluginContext) {
-  plugin.handle(listItems, ({ directory }) => listAll(directory));
-  plugin.handle(renderItem, handleRender);
-  plugin.handle(shareItem, handleShare);
-  plugin.handle(openItem, handleOpen);
-  plugin.handle(shareStatus, () => status());
-  plugin.handle(stopShare, () => stop());
-
-  plugin.addSurface("library", PreviewLibrary);
-  plugin.addSidebarItem({
+export default function contribute(client: PluginClientContext) {
+  client.addSurface("library", PreviewLibrary);
+  client.addSidebarItem({
     id: "library",
     title: "Diagrams",
     icon: "Shapes",
     surface: "library",
   });
 
-  plugin.addWorkspacePanel({
+  client.addWorkspacePanel({
     id: "diagrams",
     title: "Diagrams",
     icon: "Shapes",
@@ -40,7 +22,7 @@ export default function contribute(plugin: PluginContext) {
 
   // Agent context as well, because that is the only place we know whose chat to
   // post a rendered chart into.
-  plugin.addWorkspacePanel({
+  client.addWorkspacePanel({
     id: "diagrams-agent",
     title: "Diagrams",
     icon: "Shapes",
@@ -48,7 +30,7 @@ export default function contribute(plugin: PluginContext) {
     Component: PreviewAgentPanel,
   });
 
-  plugin.addCommandCenterItem({
+  client.addCommandCenterItem({
     id: "send-diagram-to-chat",
     title: "Send a diagram to this chat",
     icon: "Shapes",
@@ -59,7 +41,7 @@ export default function contribute(plugin: PluginContext) {
     },
   });
 
-  plugin.addCommandCenterItem({
+  client.addCommandCenterItem({
     id: "open-diagrams",
     title: "Open diagrams and workflows",
     icon: "Shapes",
@@ -70,6 +52,5 @@ export default function contribute(plugin: PluginContext) {
     },
   });
 
-  // Never leave a tunnel or listener behind when the plugin stops.
-  return () => stop();
+  return () => {};
 }

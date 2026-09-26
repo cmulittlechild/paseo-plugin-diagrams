@@ -3,7 +3,7 @@ import { homedir } from "node:os";
 import { join, relative, resolve, sep } from "node:path";
 import type { WorkflowDoc } from "./graph.server";
 import { workflowStats } from "./graph.server";
-import type { Item, ItemRef } from "./items.shared";
+import type { Item, ItemRef } from "../shared/items.shared";
 
 /** Drop folders. Both are scanned; either can be pointed elsewhere. */
 export const DIAGRAM_DIR = process.env.PASEO_DIAGRAMS_DIR ?? join(homedir(), "Diagrams");

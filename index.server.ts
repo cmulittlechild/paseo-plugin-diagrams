@@ -1,5 +1,5 @@
 import type { PluginServerContext } from "@getpaseo/plugin/server";
-import { handleOpen, handleRender, handleShare } from "./handlers.server";
+import { handleOpen, handleRender, handleShare } from "./server/handlers.server";
 import {
   listItems,
   openItem,
@@ -7,9 +7,9 @@ import {
   shareItem,
   shareStatus,
   stopShare,
-} from "./items.shared";
-import { status, stop } from "./share.server";
-import { listAll } from "./sources.server";
+} from "./shared/items.shared";
+import { status, stop } from "./server/share.server";
+import { listAll } from "./server/sources.server";
 
 export default function contribute(server: PluginServerContext) {
   server.handle(listItems, ({ directory }) => listAll(directory));

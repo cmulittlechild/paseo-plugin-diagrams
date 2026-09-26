@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import type { output as ZodOutput } from "zod";
 import { screenshotFile, screenshotHtml } from "./chrome.server";
 import { renderWorkflowHtml, workflowStats } from "./graph.server";
-import type { openItem, renderItem, shareItem } from "./items.shared";
+import type { openItem, renderItem, shareItem } from "../shared/items.shared";
 import { publish } from "./share.server";
 import { editorUrlFor, loadWorkflow, resolveInsideRoots } from "./sources.server";
 

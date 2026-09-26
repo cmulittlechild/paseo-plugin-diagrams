@@ -3,7 +3,7 @@ import { usePaseo, useRpc } from "@getpaseo/plugin/client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useMemo, useState } from "react";
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import type { Item, PresetId } from "./items.shared";
+import type { Item, PresetId } from "../shared/items.shared";
 import {
   listItems,
   openItem,
@@ -12,7 +12,7 @@ import {
   shareItem,
   shareStatus,
   stopShare,
-} from "./items.shared";
+} from "../shared/items.shared";
 
 type Layout = { compact: boolean; platform: "ios" | "android" | "web" };
 

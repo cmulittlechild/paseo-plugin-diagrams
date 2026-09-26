@@ -1,7 +1,7 @@
 import type { PluginClientContext } from "@getpaseo/plugin/client";
-import { PreviewAgentPanel } from "./agent.client";
-import { PreviewLibrary } from "./library.client";
-import { PreviewPanel } from "./panel.client";
+import { PreviewAgentPanel } from "./client/agent.client";
+import { PreviewLibrary } from "./client/library.client";
+import { PreviewPanel } from "./client/panel.client";
 
 export default function contribute(client: PluginClientContext) {
   client.addSurface("library", PreviewLibrary);
